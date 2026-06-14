@@ -64,7 +64,8 @@ function renderExpenses(expenses = tracker.expenses) {
         expenseList.appendChild(li);
     });
 
-    totalExpenses.textContent = tracker.getTotalExpenses();
+    const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
+    totalExpenses.textContent = total;
 }
 
 function deleteExpense(index) {
